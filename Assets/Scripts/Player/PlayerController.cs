@@ -44,28 +44,6 @@ public class PlayerController : MonoBehaviour
         m_Rigidbody.AddForce(movement * m_Speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
         m_Rigidbody.AddForce(-movement/2 * m_Speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
         
-
-
-        /*
-        //dynamique cinétique
-        float vInput = Input.GetAxis("Vertical");
-        float hInput = Input.GetAxis("Horizontal");
-
-
-        //Mouvement
-        Vector3 translationVect = vInput * transform.forward * m_TranslationSpeed * Time.deltaTime;
-        m_Rigidbody.MovePosition(transform.position + translationVect);
-
-        //qRotation*qOrientation = qNewOrientation
-        float deltaAngle = hInput * m_RotationSpeed * Time.fixedDeltaTime;
-        Quaternion qRot = Quaternion.AngleAxis(deltaAngle, transform.up);
-        //Quaternion qUpright = Quaternion.FromToRotation(transform.up, Vector3.up);
-        //Quaternion newOrientation = Quaternion.Lerp(transform.rotation, qUpright * transform.rotation, m_UprightRotKLerp * Time.fixedDeltaTime);
-        Quaternion newOrientation = Quaternion.Lerp(transform.rotation, qRot * transform.rotation, m_UprightRotKLerp * Time.fixedDeltaTime);
-        newOrientation = qRot * newOrientation;
-        m_Rigidbody.MoveRotation(newOrientation);
-        */
-        
     }
 
 
