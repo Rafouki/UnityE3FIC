@@ -15,7 +15,10 @@ public class PlayerController : MonoBehaviour
 
 
     Rigidbody m_Rigidbody;
-    
+
+    [SerializeField] Transform camera;
+
+
 
     private void Awake()
     {
@@ -40,10 +43,22 @@ public class PlayerController : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
 		float moveVertical = Input.GetAxis("Vertical");
 		
+
+        //Déplacement sans prendre en compte la caméra
 		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         m_Rigidbody.AddForce(movement * m_Speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
-        m_Rigidbody.AddForce(-movement/2 * m_Speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
+        //m_Rigidbody.AddForce(-movement/2 * m_Speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
+
+
+
+        /*
+        //Pour que la balle se déplace selon la position de la caméra
+        Vector3 controlDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        var actualDirection = camera.TransformDirection(movement);
+        m_Rigidbody.AddForce(actualDirection * m_Speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
+        */
         
+
     }
 
 

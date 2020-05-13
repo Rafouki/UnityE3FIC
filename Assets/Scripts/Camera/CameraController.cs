@@ -28,11 +28,11 @@ public class CameraController : MonoBehaviour
         
         float Hcamera = Input.GetAxis("R_Horizontal");
         Debug.Log("Value axis : " + Hcamera);
-        transform.position = new Vector3(cameraPosition.x, cameraPosition.y, cameraPosition.z);
-        transform.RotateAround(target.position,Vector3.up, Hcamera*30*Time.deltaTime );
+        //transform.position = new Vector3(cameraPosition.x, cameraPosition.y, cameraPosition.z);
+        //transform.RotateAround(target.position,Vector3.up, Hcamera*30*Time.deltaTime );
         Debug.Log(target.position.ToString());
         
-        transform.LookAt(target);
+        //transform.LookAt(target);
 
 
     }
